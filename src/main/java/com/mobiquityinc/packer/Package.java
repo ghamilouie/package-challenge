@@ -40,7 +40,7 @@ public class Package {
         if (getItems() == null || getItems().isEmpty()) {
             return DASH;
         }
-        return items.stream()
+        return getItems().stream()
                 .map(i -> String.valueOf(i.getIndex()))
                 .collect(Collectors.joining(ITEM_DELIMITER));
     }
