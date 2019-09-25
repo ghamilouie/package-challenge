@@ -3,7 +3,11 @@
 # Package Challenge
 
 A simple library for creating a package based on items weight and cost, 
-the package total weight is less than or equal to the package limit and the total cost is as large as possible
+the package total weight is less than or equal to the package limit and the total cost is as large as possible.
+
+In this library I used the [0/1 Knapsack Problem](https://en.wikipedia.org/wiki/Knapsack_problem) with a Dynamic Programming approach, 
+for using Dynamic Programming weight of items must be integer, so I multiplied all weights by 100.
+
 
 ## Technologies
 - Java 8
@@ -21,6 +25,33 @@ mvn clean test
 ``` 
 
 ## How to use
+
+Create a text file and use its absolute path as argument, 
+input file should consist of one or more lines, each line with pattern:
+
+capacity : (index, weight, cost) (index, weight, cost) ... (index, weight, cost)
+
 ```
-String result = Packer.pack(absoluteFilePath)
+String result = Packer.pack(filePath)
 ```
+
+#### Input Sample
+
+81 : (1,53.38,€45) (2,88.62,€98) (3,78.48,€3) (4,72.30,€76) (5,30.18,€9) (6,46.34,€48)
+
+8 : (1,15.3,€34)
+
+75 : (1,85.31,€29) (2,14.55,€74) (3,3.98,€16) (4,26.24,€55) (5,63.69,€52) (6,76.25,€75) (7,60.02,€74) (8,93.18,€35) (9,89.95,€78)
+
+56 : (1,90.72,€13) (2,33.80,€40) (3,43.15,€10) (4,37.97,€16) (5,46.81,€36) (6,48.77,€79) (7,81.80,€45) (8,19.36,€79) (9,6.76,€64)
+
+#### Output sample
+For each set of things that you put into the package provide a list (items’ index numbers are separated by comma). E.g.
+
+4
+
+\-
+
+2,7
+
+8,9
