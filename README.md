@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ghamilouie/package-challenge.svg?branch=master)](https://travis-ci.org/ghamilouie/package-challenge)
+[![codecov](https://codecov.io/gh/ghamilouie/package-challenge/branch/master/graph/badge.svg)](https://codecov.io/gh/ghamilouie/package-challenge)
 # Package Challenge
 
 ## Introduction
