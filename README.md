@@ -5,8 +5,9 @@
 A simple library for creating a package based on items weight and cost, 
 the package total weight is less than or equal to the package limit and the total cost is as large as possible.
 
-In this library I used the [0/1 Knapsack Problem](https://en.wikipedia.org/wiki/Knapsack_problem) with a Dynamic Programming approach, 
-for using Dynamic Programming weight of items must be integer, so I multiplied all weights by 100.
+In this library the [0/1 Knapsack Problem](https://en.wikipedia.org/wiki/Knapsack_problem) 
+with a Dynamic Programming approach is used, as in Dynamic Programming weight of items must be integer,
+all weights is multiplied by 100.
 
 
 ## Technologies
