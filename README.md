@@ -47,7 +47,6 @@ String result = Packer.pack(filePath)
 56 : (1,90.72,€13) (2,33.80,€40) (3,43.15,€10) (4,37.97,€16) (5,46.81,€36) (6,48.77,€79) (7,81.80,€45) (8,19.36,€79) (9,6.76,€64)
 
 #### Output sample
-For each set of things that you put into the package provide a list (items’ index numbers are separated by comma). E.g.
 
 4
 
