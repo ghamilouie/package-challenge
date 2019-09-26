@@ -11,6 +11,7 @@ public class Item {
 
     private static final int MAX_ITEM_WEIGHT = 100;
     private static final int MAX_ITEM_COST = 100;
+    private static final int MAX_ITEM_WEIGHT_FLOAT = 2;
 
     private Integer index;
     private Float weight;
@@ -41,8 +42,17 @@ public class Item {
         if (weight == 0) {
             throw new APIException("The weight should not be zero");
         }
+
+        if(findWeightFloatPoint()> 2){
+            throw new APIException("Float point of Weight should not be greater than: " + MAX_ITEM_WEIGHT_FLOAT);
+        }
         if (cost > MAX_ITEM_COST) {
             throw new APIException("The cost of item should not be greater than: " + MAX_ITEM_COST);
         }
+    }
+
+    private int findWeightFloatPoint() {
+        String[] div = weight.toString().split("\\.");
+        return div[1].length();
     }
 }

@@ -3,7 +3,10 @@ package com.mobiquityinc.packer;
 import com.mobiquityinc.exception.APIException;
 import org.junit.Test;
 
+import java.io.File;
+import java.net.URI;
 import java.net.URL;
+import java.nio.file.Paths;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,77 +17,76 @@ public class PackerTest {
 
     @Test
     public void testPackFileWithMultipleLineInput() throws Exception {
-        URL resource = this.getClass().getResource("/multi-line-input.txt");
-        String pack = Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "multi-line-input.txt").toURI();
+        String pack = Packer.pack(Paths.get(uri).toString());
         assertEquals(pack, "4-2,78,9");
     }
 
     @Test
     public void testPackFileWithSingleLineInput() throws Exception {
-        URL resource = this.getClass().getResource("/single-line-input.txt");
-        String pack = Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "single-line-input.txt").toURI();
+        String pack = Packer.pack(Paths.get(uri).toString());
         assertEquals(pack, "4");
     }
 
     @Test(expected = APIException.class)
     public void testPackFileWithZeroCapacityInput() throws Exception {
-        URL resource = this.getClass().getResource("/zero-capacity-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "zero-capacity-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
 
     @Test(expected = APIException.class)
     public void testPackFileWithNegativeCapacityInput() throws Exception {
-        URL resource = this.getClass().getResource("/negative-capacity-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "negative-capacity-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
 
     @Test(expected = APIException.class)
     public void testPackWithCorruptCapacityInput() throws Exception {
-        URL resource = this.getClass().getResource("/corrupt-capacity-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "corrupt-capacity-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
 
     @Test(expected = APIException.class)
     public void testPackFileWithZeroWeightInput() throws Exception {
-        URL resource = this.getClass().getResource("/zero-weight-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "zero-weight-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
 
     @Test(expected = APIException.class)
     public void testPackWithBigWeightInput() throws Exception {
-        URL resource = this.getClass().getResource("/big-weight-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "big-weight-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
 
     @Test(expected = APIException.class)
     public void testPackWithBigCostInput() throws Exception {
-        URL resource = this.getClass().getResource("/big-cost-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "big-cost-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
-
 
     @Test(expected = APIException.class)
     public void testPackWithEmptyItemInput() throws Exception {
-        URL resource = this.getClass().getResource("/empty-item-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "empty-item-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
 
     @Test(expected = APIException.class)
     public void testPackWithCorruptItemInput() throws Exception {
-        URL resource = this.getClass().getResource("/corrupt-item-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "corrupt-item-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
 
     @Test(expected = APIException.class)
     public void testPackWithEmptyFile() throws Exception {
-        URL resource = this.getClass().getResource("/empty-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "empty-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
 
     @Test(expected = APIException.class)
     public void testPackWithEmptyLineInput() throws Exception {
-        URL resource = this.getClass().getResource("/empty-line-input.txt");
-        Packer.pack(resource.getPath());
+        URI uri = ClassLoader.getSystemResource(File.separator + "empty-line-input.txt").toURI();
+        Packer.pack(Paths.get(uri).toString());
     }
 
     @Test(expected = APIException.class)

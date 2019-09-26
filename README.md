@@ -12,7 +12,7 @@ all weights is multiplied by 100.
 
 ## Technologies
 - Java 8
-- [JUnit](https://junit.org/)`
+- [JUnit](https://junit.org/)
 
 ## How to build
 ```sh
