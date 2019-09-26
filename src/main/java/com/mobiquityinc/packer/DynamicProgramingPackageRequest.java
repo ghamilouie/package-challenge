@@ -7,17 +7,17 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * The class {@code PackageRequestImpl} is wrapper for {@code items} and {@code capacity}
+ * The class {@code DynamicProgramingPackageRequest} is wrapper for {@code items} and {@code capacity}
  * and method {@code createPackage} for creating package that total weight is less than or equal to the package limit
  * and the total cost is as large as possible
  *
  * @author Khadijeh Ghamilouie
  */
-public class PackageRequestImpl extends PackageRequest {
+public class DynamicProgramingPackageRequest extends PackageRequest {
 
     private static final int FLOAT_POINT = 100;
 
-    public PackageRequestImpl(List<Item> items, Integer capacity) {
+    public DynamicProgramingPackageRequest(List<Item> items, Integer capacity) {
         super(items, capacity);
     }
     /**

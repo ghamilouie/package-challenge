@@ -24,7 +24,7 @@ public class ScenarioParserImpl implements ScenarioParser {
      * capacity : (index, weight, cost) (index, weight, cost) ... (index, weight, cost)
      *
      * @param scenario the string of line to be parsed
-     * @return new PackageRequestImpl with extracted items and maximum capacity from line
+     * @return new DynamicProgramingPackageRequest with extracted items and maximum capacity from line
      * @throws APIException If any of the following is true:
      *                      <ul>
      *                      <li> {@code line} is empty
@@ -64,6 +64,6 @@ public class ScenarioParserImpl implements ScenarioParser {
         if (items.isEmpty()) {
             throw new APIException("There is no item in current line: '" + scenario + "'");
         }
-        return new PackageRequestImpl(items, capacity);
+        return new DynamicProgramingPackageRequest(items, capacity);
     }
 }

@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Khadijeh Ghamilouie
  */
-public class PackageRequestImplTest {
+public class DynamicProgramingPackageRequestTest {
 
     @Test
     public void testCreatePackageFirst() throws Exception {
@@ -22,7 +22,7 @@ public class PackageRequestImplTest {
         items.add(new Item(4, 72.30f, 76));
         items.add(new Item(5, 30.18f, 9));
         items.add(new Item(5, 46.34f, 48));
-        PackageRequest packageRequest = new PackageRequestImpl(items, 81);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(items, 81);
         Package aPackage = packageRequest.createPackage();
         assertEquals(aPackage.getItems().size(), 1);
         assertEquals(aPackage.getItems().get(0).getIndex().intValue(), 4);
@@ -34,7 +34,7 @@ public class PackageRequestImplTest {
         List<Item> items = new ArrayList<>();
         items.add(new Item(1, 53.38f, 45));
         items.add(new Item(2, 15.3f, 34));
-        PackageRequest packageRequest = new PackageRequestImpl(items, 8);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(items, 8);
         Package aPackage = packageRequest.createPackage();
         assertEquals(aPackage.getItems().size(), 0);
         assertEquals(aPackage.getCost().intValue(), 0);
@@ -52,7 +52,7 @@ public class PackageRequestImplTest {
         items.add(new Item(7, 60.02f, 74));
         items.add(new Item(8, 93.18f, 35));
         items.add(new Item(9, 89.95f, 78));
-        PackageRequest packageRequest = new PackageRequestImpl(items, 75);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(items, 75);
         Package aPackage = packageRequest.createPackage();
         assertEquals(aPackage.getItems().size(), 2);
         assertEquals(aPackage.getItems().get(0).getIndex().intValue(), 2);
@@ -72,7 +72,7 @@ public class PackageRequestImplTest {
         items.add(new Item(7, 81.80f, 45));
         items.add(new Item(8, 19.36f, 79));
         items.add(new Item(9, 6.76f, 64));
-        PackageRequest packageRequest = new PackageRequestImpl(items, 56);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(items, 56);
         Package aPackage = packageRequest.createPackage();
         assertEquals(aPackage.getItems().size(), 2);
         assertEquals(aPackage.getItems().get(0).getIndex().intValue(), 8);
@@ -83,13 +83,13 @@ public class PackageRequestImplTest {
     @Test(expected = APIException.class)
     public void testCreatePackageWithEmptyItems() throws Exception {
         List<Item> items = new ArrayList<>();
-        PackageRequest packageRequest = new PackageRequestImpl(items, 50);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(items, 50);
         packageRequest.createPackage();
     }
 
     @Test(expected = APIException.class)
     public void testCreatePackageWithNullItems() throws Exception {
-        PackageRequest packageRequest = new PackageRequestImpl(null, 50);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(null, 50);
         packageRequest.createPackage();
     }
 
@@ -97,7 +97,7 @@ public class PackageRequestImplTest {
     public void testCreatePackageWithNullCapacity() throws Exception {
         List<Item> items = new ArrayList<>();
         items.add(new Item(1, 53.38f, 45));
-        PackageRequest packageRequest = new PackageRequestImpl(items, null);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(items, null);
         packageRequest.createPackage();
     }
 
@@ -105,7 +105,7 @@ public class PackageRequestImplTest {
     public void testCreatePackageWithZeroCapacity() throws Exception {
         List<Item> items = new ArrayList<>();
         items.add(new Item(1, 53.38f, 45));
-        PackageRequest packageRequest = new PackageRequestImpl(items, 0);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(items, 0);
         packageRequest.createPackage();
     }
 
@@ -113,7 +113,7 @@ public class PackageRequestImplTest {
     public void testCreatePackageWithNegativeCapacity() throws Exception {
         List<Item> items = new ArrayList<>();
         items.add(new Item(1, 53.38f, 45));
-        PackageRequest packageRequest = new PackageRequestImpl(items, -50);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(items, -50);
         packageRequest.createPackage();
     }
 
@@ -121,7 +121,7 @@ public class PackageRequestImplTest {
     public void testCreatePackageWithBigCapacity() throws Exception {
         List<Item> items = new ArrayList<>();
         items.add(new Item(1, 53.38f, 45));
-        PackageRequest packageRequest = new PackageRequestImpl(items, 200);
+        PackageRequest packageRequest = new DynamicProgramingPackageRequest(items, 200);
         packageRequest.createPackage();
     }
 }
