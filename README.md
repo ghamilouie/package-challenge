@@ -53,7 +53,7 @@ String result = Packer.pack(filePath)
 ```
 4
 
-\-
+-
 
 2,7
 
